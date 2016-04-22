@@ -1,4 +1,4 @@
-### 取非行间样式
+#### 取非行间样式
 	function getStyle(obj,name){
 		if(obj.currentStyle){
 			//IE
