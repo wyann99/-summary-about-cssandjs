@@ -19,13 +19,12 @@
 上代码：
 		var myVid = document.getElementById("video1");//视频video
 		var opcover = document.getElementById("opcover");//控制图层
-		var timer = setInterval(function(){
+		var timer = setInterval(function(){//监听视频是否播放完成
 			if(myVid.ended){
 				console.log("播放结束！");
 				clearInterval(timer);
 			};
 		},500);
-
 		var clickTag = 1;//防止多次点击
 		opcover.onclick = function(){
 			if(clickTag){
