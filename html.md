@@ -16,7 +16,7 @@
 
 解决方案：<br>
 在 video 上添加图层，视频事件添加到这个图层上。<br>
-上代码：
+上代码：<br>
 		var myVid = document.getElementById("video1");//视频video
 		var opcover = document.getElementById("opcover");//控制图层
 		var timer = setInterval(function(){//监听视频是否播放完成
