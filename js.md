@@ -27,6 +27,7 @@
 		},30);
 	}
 	```
+	
 - 特殊：修改透明度
 	```javascript
 	function startMove(obj,attr,iTarget){
