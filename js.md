@@ -1,4 +1,5 @@
 #### 取非行间样式
+	```javascript
 	function getStyle(obj,name){
 		if(obj.currentStyle){
 			//IE
@@ -8,3 +9,7 @@
 			return getComputedStyle(obj,false)[name];
 		}
 	}
+	```
+
+
+

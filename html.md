@@ -1,4 +1,4 @@
-### 工作中遇到的需求及解决方法
+### 工作中遇到的新需求及解决方法
 #### 1、需求是手机端观看完视频 跳转到新页 用户可点击播放/暂停，但不可以快进
 - 一开始是用的 video.js 插件：可监听视频的结束；但发现 iPhone 点击视频会自动弹开;
 - 查看资料：禁止 iPhone Safari 视频自动全屏：<br>
@@ -6,8 +6,10 @@
 	```javascript
 	<video id="video" width="" height="" webkit-playsinline></video>
 	```
-	详情官方文档：[UIWebView Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIWebView_Class/index.html)
-	亲测：微博和客户端里无用，QQ和微信里可以
+	详情官方文档：[UIWebView Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIWebView_Class/index.html)<br>
+
+	亲测：微博和客户端里无用，QQ和微信里可以 
+
 
 - 以下为拓展：
 	在iOS APP中使用网页视频，是可以禁止全屏播放的，方法如下：<br>
@@ -40,6 +42,7 @@
 	};
 	```
 
+#### 2、
 
 
 
