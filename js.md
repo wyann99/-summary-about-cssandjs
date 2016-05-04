@@ -12,7 +12,7 @@
 	```
 
 #### 任意值运动框架
-	``` javascript
+	```javascript
 	function startMove(obj,attr,iTarget){
 		clearInterval(obj.timer);
 		obj.timer = setInterval(function(){
@@ -28,7 +28,7 @@
 	}
 	```
 - 特殊：修改透明度
-	``` javascript
+	```javascript
 	function startMove(obj,attr,iTarget){
 		clearInterval(obj.timer);
 		obj.timer = setInterval(function(){
