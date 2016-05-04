@@ -1,15 +1,15 @@
 #### 取非行间样式
-	```javascript
-	function getStyle(obj,name){
-		if(obj.currentStyle){
-			//IE
-			return obj.currentStyle[name];
-		}else{
-			//FF
-			return getComputedStyle(obj,false)[name];
-		}
+```javascript
+function getStyle(obj,name){
+	if(obj.currentStyle){
+		//IE
+		return obj.currentStyle[name];
+	}else{
+		//FF
+		return getComputedStyle(obj,false)[name];
 	}
-	```
+}
+```
 
 #### 任意值运动框架
 ```javascript
