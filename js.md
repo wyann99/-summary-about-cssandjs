@@ -1,3 +1,15 @@
+#### 解决绑定事件兼容性
+```javascript
+function myAddEvent(obj,ev,fn){
+	if(obj.attchEvent){
+		obj.attchEvent("on"+ev,fn){}
+	}else{
+		obj.addEventListener(ev,fn,false){}
+	}
+}
+
+```
+
 #### 取非行间样式
 ```javascript
 function getStyle(obj,name){
