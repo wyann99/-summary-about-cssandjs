@@ -1,3 +1,9 @@
+#### scrollTop 兼容性
+```javascript
+var scrollTop = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
+```
+
+
 #### 解决绑定事件兼容性
 ```javascript
 function myAddEvent(obj,ev,fn){
