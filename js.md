@@ -1,3 +1,28 @@
+#### 关于cookie
+```javascript
+<!-- 设置 -->
+function setCookie(name,value,iDay){
+	var oDate = new Date();
+	oDate.setDate(oDate.getDate() + iDay);
+	document.cookie = name + '=' + value +  ';expires='+ oDate;
+}
+<!-- 获取 -->
+function getCookie(name){
+	var arr= document.cookie.split('; ');
+	for(var i=0;i<arr.length;i++){
+		var arr2 = arr[i].split('=');
+		if(arr2[0]=name){
+			return arr2[1];
+		};
+	}
+	return '';
+}
+<!-- 删除 -->
+function removeCookie(name){
+	setCookie(name,1,-1);
+}
+```
+
 #### scrollTop 兼容性
 ```javascript
 var scrollTop = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
