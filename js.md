@@ -41,6 +41,20 @@ function myAddEvent(obj,ev,fn){
 
 ```
 
+#### 获取className
+```javascript
+function getClass(className){
+	var element = [];
+	var all = document.getElementsByTagName("*");
+	for(var i=0;i<all.length;i++){
+		if(all[i].className == className){
+			element.push(all[i]);
+		}
+	}
+	return element;
+}
+```
+
 #### 取非行间样式
 ```javascript
 function getStyle(obj,name){
