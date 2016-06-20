@@ -46,4 +46,4 @@
 	方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 或者 [htmlPhoto](https://github.com/jljsj33/htmlPhoto)
 
 
-
+#### 3、H5本地存储 
