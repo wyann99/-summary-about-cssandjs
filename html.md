@@ -46,4 +46,11 @@
 	方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 或者 [htmlPhoto](https://github.com/jljsj33/htmlPhoto)
 
 
-#### 3、H5本地存储 
+#### 3、H5本地存储 localStorage
+	local storage把只把数据存储在了客户端使用，不会发送的服务器上（除非你故意这样做）。
+	而且对于某一个域下来说，local storage是共享的（多个窗口共享一个“数据库”）。
+	localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+
+
+
+	
