@@ -43,16 +43,18 @@
 	```
 
 #### 2、H5上传照片，并且可对图片进行编辑（放大缩小裁剪）
-	方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 或者 [htmlPhoto](https://github.com/jljsj33/htmlPhoto)
+方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 
+	或者 [htmlPhoto](https://github.com/jljsj33/htmlPhoto)
 
 
-#### 3、欧洲杯专题
-	①、H5本地存储 localStorage 
+#### 3、欧洲杯专题活动
+- H5本地存储 localStorage 
 	local storage把只把数据存储在了客户端使用，不会发送的服务器上（除非你故意这样做）。
 	而且对于某一个域下来说，local storage是共享的（多个窗口共享一个“数据库”）。
 	localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
 
-	②、获取用户微信头像
-	
+- 获取用户微信头像
+	参考资料：[获取用户基本信息](http://mp.weixin.qq.com/wiki/14/bb5031008f1494a59c6f71fa0f319c66.html)
+
 
 	
