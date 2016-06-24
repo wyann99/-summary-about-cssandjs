@@ -2,7 +2,6 @@
 ```javascript
 	function addOption(){
 		var obj = document.getElementById("Select");
-		//obj.add(new Option("text","value"));//只在IE中有效
 		obj.option.add(new Option("text","value"));//兼容IE与Firefox
 	}
 ```
