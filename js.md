@@ -1,12 +1,20 @@
 #### canvas中使用drawImage
 ```javascript
+	//使用中要给canvas设置宽高单位是px，百分比是对画布的缩放
 	var oCanvas = document.getElementById("wcanvas");
 	var cxt = oCanvas.getContext("2d");
 	var oImg = new Image();
 	oImg.src = "images/person.png";
-	//图片加载出来才加载画布
-	oImg.onload = function(){
-		cxt.drawImage(oPerson,0,0,320,450);
+	oImg.onload = function(){ //图片加载出来才加载画布
+		cxt.drawImage(oImg,0,0,320,450);
+	};
+
+	//或者还可以写作
+	var oCanvas = document.getElementById("wcanvas");
+	var cxt = oCanvas.getContext("2d");
+	var oImg = document.getElementById("wimg");
+	oImg.onload = function(){ 	//图片加载出来才加载画布
+		cxt.drawImage(oImg,0,0,320,450);	//图片大小
 	};
 	
 ```
