@@ -1,3 +1,18 @@
+#### canvas中使用drawImage
+```javascript
+	var oCanvas = document.getElementById("wcanvas");
+	var cxt = oCanvas.getContext("2d");
+	var oImg = new Image();
+	oImg.src = "images/person.png";
+	//图片加载出来才加载画布
+	oImg.onload = function(){
+		cxt.drawImage(oPerson,0,0,320,450);
+	};
+	
+```
+
+
+
 #### 动态添加option
 ```javascript
 	function addOption(){
