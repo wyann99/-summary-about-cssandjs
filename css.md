@@ -6,7 +6,7 @@
 ```css
 	@font-face {
 		font-family: "icomoon";
-		//引入4种字体进行渲染
+		/*引入4种字体进行渲染*/
 		src: url("../fonts/icomoon.eot") format("embedded-opentype"),
 			 url("../fonts/icomoon.woff") format("woff"),
 			 url("../fonts/icomoon.ttf") format("truetype"),
@@ -20,15 +20,15 @@
 		font-style: normal;
 		font-weight: normal;
 		font-size: 16px;
-		/*放锯齿*/
+		/*防止出现锯齿*/
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		/*改变图标颜色*/
 		color: #f99;
 	}
 
-	//制作图标网站：[Icomoon](https://icomoon.io)；
-	//[图标制作及下载](https://icomoon.io/app/#/select)；
+	/*制作图标网站：[Icomoon](https://icomoon.io)；*/
+	/*[图标制作及下载](https://icomoon.io/app/#/select)；*/
 ```
 
 
