@@ -1,10 +1,12 @@
 #### font-face 运用
 ```html
-	<i class="icon">&#x907;</i>
+	<!-- 要使用16进制，前缀&# + 图标 -->
+	<i class="icon">&#x907;</i> 
 ```
 ```css
 	@font-face {
 		font-family: "icomoon";
+		//引入4种字体进行渲染
 		src: url("../fonts/icomoon.eot") format("embedded-opentype"),
 			 url("../fonts/icomoon.woff") format("woff"),
 			 url("../fonts/icomoon.ttf") format("truetype"),
@@ -24,6 +26,9 @@
 		/*改变图标颜色*/
 		color: #f99;
 	}
+
+	//制作图标网站：[Icomoon](https://icomoon.io)；
+	//[图标制作及下载](https://icomoon.io/app/#/select)；
 ```
 
 
