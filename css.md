@@ -26,12 +26,9 @@
 		/*改变图标颜色*/
 		color: #f99;
 	}
-
-	/*制作图标网站：[Icomoon](https://icomoon.io)；*/
-	/*[图标制作及下载](https://icomoon.io/app/#/select)；*/
 ```
-
-
+- 制作图标网站：[Icomoon](https://icomoon.io)；[图标制作及下载](https://icomoon.io/app/#/select)；
+<br>
 
 #### 兼容低版本 border-radius
 ```css
@@ -48,6 +45,6 @@
 	behavior:url(PIE.htc);
 }
 ```
-详解：PIE.htc[zhangxinxu](http://www.zhangxinxu.com/wordpress/?p=967)
+- 详解：PIE.htc[zhangxinxu](http://www.zhangxinxu.com/wordpress/?p=967)
 
 
