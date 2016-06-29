@@ -1,3 +1,24 @@
+#### font-face 运用
+```css
+	@font-face {
+		font-family: "icomoon";
+		src: url("../fonts/icomoon.eot") format("embedded-opentype"),
+			 url("../fonts/icomoon.woff") format("woff"),
+			 url("../fonts/icomoon.ttf") format("truetype"),
+			 url("../fonts/icomoon.svg") format("svg");
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.icon {
+		font-family: "icomoon";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+	}
+```
+
+
 
 #### 兼容低版本 border-radius
 ```css
@@ -15,25 +36,5 @@
 }
 ```
 详解：PIE.htc[zhangxinxu](http://www.zhangxinxu.com/wordpress/?p=967)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
