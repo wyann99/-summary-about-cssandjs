@@ -1,4 +1,7 @@
 #### font-face 运用
+```html
+	<i class="icon">&#x907;</i>
+```
 ```css
 	@font-face {
 		font-family: "icomoon";
@@ -15,6 +18,11 @@
 		font-style: normal;
 		font-weight: normal;
 		font-size: 16px;
+		/*放锯齿*/
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		/*改变图标颜色*/
+		color: #f99;
 	}
 ```
 
