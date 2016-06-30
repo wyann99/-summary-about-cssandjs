@@ -16,9 +16,32 @@
 	oImg.onload = function(){ 	//图片加载出来才加载画布
 		cxt.drawImage(oImg,0,0,320,450);	//图片大小
 	};
-	
 ```
 
+#### lacalstorage
+```javascript
+	// 单个数据
+	localStorage.setItem("name","miya");//设置
+	localStorage.getItem("name");//获取
+	localStorage.removeItem("name");//删除
+	localStorage.clear();//删除
+
+	//多个数据 - 用json格式
+	var userData = {
+		name:"miya",
+		account:"yu",
+		level:1
+	}
+	localStorage.setItem("userData",JSON.stringify(userData));//存储
+	var newData = JSON.parse(localStorage.getItem("userData"));//取出所有值
+	var newName = JSON.parse(localStorage.getItem("userData").name);
+	localStorage.removeItem("newData");
+
+	//更新Json里面的数据
+	var userData = JSON.parse(localStorage.getItem("userData"));
+	userData.name = "newName";
+	localStorage.setItem("userData",JSON.stringify(userData));
+```
 
 
 #### 动态添加option

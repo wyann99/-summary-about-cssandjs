@@ -27,7 +27,9 @@
 		color: #f99;
 	}
 ```
-- 制作图标网站：[Icomoon](https://icomoon.io)；[图标制作及下载](https://icomoon.io/app/#/select)；
+- 制作图标网站：[Icomoon](https://icomoon.io) and [图标制作及下载](https://icomoon.io/app/#/select)；
+- 字体库[Fontsquirrel](http://www.fontsquirrel.com/fontface/generator)；
+- 字体制作（ttf转eot/woff/svg）：[webfont-generator](https://www.fontsquirrel.com/tools/webfont-generator)
 <br>
 
 #### 兼容低版本 border-radius
