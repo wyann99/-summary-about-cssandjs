@@ -1,3 +1,19 @@
+#### querySelect 和 querySelectAll（javascript高级选择器）IE8及以上可用
+```javascript
+	//获取ID
+	document.getElementbyId("test");
+	document.querySelect("#test");
+	document.querySelectAll("#test")[0];
+
+	//获取class
+	document.getElementsByClassName("type");
+	document.querySelect(".type");
+	document.querySelectAll(".type");
+
+	//querySelector返回的是一个对象，querySelectorAll返回的一个集合(NodeList)
+```
+
+
 #### canvas中使用drawImage
 ```javascript
 	//使用中要给canvas设置宽高单位是px，百分比是对画布的缩放
@@ -100,7 +116,7 @@ function myAddEvent(obj,ev,fn){
 function getClass(className){
 	var element = [];
 	var all = document.getElementsByTagName("*");
-	for(var i=0;i<all.length;i++){
+	for(var i=0;i< all.length;i++){
 		if(all[i].className == className){
 			element.push(all[i]);
 		}
