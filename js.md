@@ -48,6 +48,7 @@
 		account:"yu",
 		level:1
 	}
+	
 	localStorage.setItem("userData",JSON.stringify(userData));//存储
 	var newData = JSON.parse(localStorage.getItem("userData"));//取出所有值
 	var newName = JSON.parse(localStorage.getItem("userData").name);
