@@ -1,3 +1,20 @@
+#### 改变input 的 placeholder 颜色
+```css
+	input::-webkit-input-placeholder {
+		color: #f99;	<!-- Webkit browsers -->
+	}
+	input:-moz-placeholder {
+		color: #f99;	<!-- Mozilla Firefox 4 to 18 -->
+	}
+	input::-moz-placeholder {
+		color: #f99;	<!-- Mozilla Firefox 19+ -->
+	}
+	input:-ms-input-placeholder {
+		color: #f99;	<!-- IE 10+ -->
+	}
+```
+
+
 #### font-face 运用
 ```html
 	<!-- 要使用16进制，前缀&# + 图标 -->
