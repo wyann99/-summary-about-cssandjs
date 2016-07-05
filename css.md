@@ -1,16 +1,16 @@
 #### 改变input 的 placeholder 颜色
 ```css
 	input::-webkit-input-placeholder {
-		color: #f99;	<!-- Webkit browsers -->
+		color: #f99;	/* Webkit browsers */
 	}
 	input:-moz-placeholder {
-		color: #f99;	<!-- Mozilla Firefox 4 to 18 -->
+		color: #f99;	/* Mozilla Firefox 4 to 18 */
 	}
 	input::-moz-placeholder {
-		color: #f99;	<!-- Mozilla Firefox 19+ -->
+		color: #f99;	/* Mozilla Firefox 19+ */
 	}
 	input:-ms-input-placeholder {
-		color: #f99;	<!-- IE 10+ -->
+		color: #f99;	/* IE 10+ */
 	}
 ```
 
