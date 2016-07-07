@@ -1,3 +1,11 @@
+#### 去除iPhone 的默认input样式
+```css
+	input {
+		-webkit-appearance:none;
+	}
+```
+
+
 #### 改变input 的 placeholder 颜色
 ```css
 	input::-webkit-input-placeholder {
@@ -48,6 +56,16 @@
 - 字体库[Fontsquirrel](http://www.fontsquirrel.com/fontface/generator)；
 - 字体制作（ttf转eot/woff/svg）：[webfont-generator](https://www.fontsquirrel.com/tools/webfont-generator)
 <br>
+
+
+#### 1.0  transform3d
+```css
+    transform-style:flat/preserve-3d;
+    translate3d(tx,ty,tz);
+    scale3d(sx,sy,sz);
+    rotate3d(rx,ry,rz,adeg);
+```
+
 
 #### 兼容低版本 border-radius
 ```css

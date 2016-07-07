@@ -109,7 +109,6 @@ function myAddEvent(obj,ev,fn){
 		obj.addEventListener(ev,fn,false){}
 	}
 }
-
 ```
 
 #### 获取className
