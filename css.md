@@ -1,3 +1,20 @@
+#### CSS3实现两行或多行文字，多余部分用省略号代替
+```css
+	/* -webkit-line-clamp 是一个不规范的属性，未出现在CSS规范草案中,IE跟火狐不支持，Safari跟Chrome支持 */
+	/* 限制一个块元素显示的文本的行数。需要结合属性： */
+	display:-webkit-box; 
+	-webkit-box-orient:vertical; 
+	text-overflow:ellipsis; 
+	-webkit-line-clamp:<number>;
+	height: 36px;
+```
+
+#### 手机端 动态改变标签中的内容 为空格 出出现不对齐 在元素上添加
+```css
+	vertical-align:middle;
+```
+
+
 #### 去除iPhone 的默认input样式
 ```css
 	input {
