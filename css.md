@@ -2,8 +2,8 @@
 ```css
 	/* -webkit-line-clamp 是一个不规范的属性，未出现在CSS规范草案中,IE跟火狐不支持，Safari跟Chrome支持 */
 	/* 限制一个块元素显示的文本的行数。需要结合属性： */
-	display:-webkit-box; 
-	-webkit-box-orient:vertical; 
+	display:-webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+	-webkit-box-orient:vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
 	text-overflow:ellipsis; 
 	-webkit-line-clamp:<number>;
 	height: 36px;
