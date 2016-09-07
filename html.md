@@ -11,7 +11,7 @@
 	亲测：微博和客户端里无用，QQ和微信里可以 
 
 
-- 以下为拓展：
+- 以下为拓展：<br>
 	在iOS APP中使用网页视频，是可以禁止全屏播放的，方法如下：<br>
 		1. 前端将video标签加入属性 webkit-playsinline，<br>
 		2. Obj-C中，添加配置：webview.allowsInlineMediaPlayback = YES;<br>
@@ -19,7 +19,7 @@
 
 - 解决方案：
 	在 video 上添加图层，视频事件添加到这个图层上。
-	上代码：
+- 上代码：
 	```javascript
 	var myVid = document.getElementById("video1");//视频video
 	var opcover = document.getElementById("opcover");//控制图层
@@ -43,12 +43,12 @@
 	```
 
 #### 2、H5上传照片，并且可对图片进行编辑（放大缩小裁剪）
-方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 
+- 方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 
 	或者 [htmlPhoto](https://github.com/jljsj33/htmlPhoto)
 
 
 #### 3、欧洲杯专题活动
-- H5本地存储 localStorage 
+- H5本地存储 localStorage <br>
 	local storage把只把数据存储在了客户端使用，不会发送的服务器上（除非你故意这样做）。<br>
 	而且对于某一个域下来说，local storage是共享的（多个窗口共享一个“数据库”）。<br>
 	localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
@@ -59,8 +59,61 @@
 
 
 #### 4、（大湖以爱之铭专题）上传图片的相关问题
-	类似朋友圈上传图片的功能；专题做了两个版本PC端跟WAP端。
+- 类似朋友圈上传图片的功能；专题做了两个版本PC端跟WAP端。
+- PC端的上传用的插件pulpload；[具体使用](https://github.com/moxiecode/plupload/tree/master/js)
+- 后WAP端用的跟PC端改成了一样的，线上地址：[lovephoto](http://house.ifeng.com/lovephoto/show/rule)
+```javascript
+//fileReader 接口的使用
+	//判断浏览器是否支持FileReader接口  
+	if(typeof FileReader == 'undefined'){  
+		result.InnerHTML="<p>你的浏览器不支持FileReader接口！</p>";  
+		//使选择控件不可操作  
+		file.setAttribute("disabled","disabled");  
+	}
 
+	function readAsDataURL(){
+		//检验是否为图像文件
+		var file = document.getElementById("file").files[0];
+		if(!/image\/\w+/.test(file.type)){
+			alert("看清楚，这个需要图片！");
+			return false;
+		}
+		var reader = new FileReader();
+		//将文件以Data URL形式读入页面
+		reader.readAsDataURL(file);
+		reader.onload=function(e){
+			var result=document.getElementById("result");
+			//显示文件
+			result.innerHTML='<img src="' + this.result +'" alt="" />';
+		}
+	}
+
+	function readAsBinaryString(){
+		var file = document.getElementById("file").files[0];
+		var reader = new FileReader();
+		//将文件以二进制形式读入页面
+		reader.readAsBinaryString(file);
+		reader.onload=function(f){
+			var result=document.getElementById("result");
+			//显示文件
+			result.innerHTML=this.result;
+		}
+	}
+
+	function readAsText(){
+		var file = document.getElementById("file").files[0];
+		var reader = new FileReader();
+		//将文件以文本形式读入页面
+		reader.readAsText(file);
+		reader.onload=function(f){
+			var result=document.getElementById("result");
+			//显示文件
+			result.innerHTML=this.result;
+		}
+	}
+
+
+```
 
 
 
