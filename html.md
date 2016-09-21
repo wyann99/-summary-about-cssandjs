@@ -64,6 +64,9 @@
 - 后WAP端用的跟PC端改成了一样的，线上地址：[lovephoto](http://house.ifeng.com/lovephoto/show/rule)
 ```javascript
 //fileReader 接口的使用
+	var result=document.getElementById("result");
+	var file=document.getElementById("file");
+
 	//判断浏览器是否支持FileReader接口  
 	if(typeof FileReader == 'undefined'){  
 		result.InnerHTML="<p>你的浏览器不支持FileReader接口！</p>";  
@@ -111,23 +114,7 @@
 			result.innerHTML=this.result;
 		}
 	}
-
-
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

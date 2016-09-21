@@ -1,3 +1,14 @@
+#### 移动端点击按钮的时候，该按钮背后会出现一个阴影。
+- 手机网站上tap（轻触）该按钮时，背景高亮在作祟。
+- 处理方法只要给a标签加上
+```css
+	a {
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+	}
+```
+
 #### CSS3实现两行或多行文字，多余部分用省略号代替
 ```css
 	/* -webkit-line-clamp 是一个不规范的属性，未出现在CSS规范草案中,IE跟火狐不支持，Safari跟Chrome支持 */
