@@ -1,3 +1,25 @@
+#### input 类型的date 情况下不支持 placeholder 
+桌面端（Mac）
+Safari 不支持 datepicker，placeholder 正常显示。
+Firefox 不支持 datepicker，placeholder 正常显示。
+Chrome 支持 datepicker，显示 年、月、日 格式，忽略 placeholder。
+
+移动端
+iPhone5 iOS7 有 datepicker 功能，但是不显示 placeholder。
+Andorid 4.0.4 无 datepicker 功能，不显示 placeholder
+
+- 解决方法
+```html
+	<input type="text" placeholder="Date" onfocus="(this.type='data')" id="date">
+```
+- 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了。
+
+#### placeholder line-height
+- input 的 placeholder 会出现文本位置偏上的情况：
+- PC端设置line-height 等于height 能够对齐，但是移动端仍然是偏上，解决方法：line-height:normal;
+
+
+
 #### 移动端点击按钮的时候，该按钮背后会出现一个阴影。
 - 手机网站上tap（轻触）该按钮时，背景高亮在作祟。
 - 处理方法只要给a标签加上
@@ -9,6 +31,7 @@
 	}
 ```
 
+
 #### CSS3实现两行或多行文字，多余部分用省略号代替
 ```css
 	/* -webkit-line-clamp 是一个不规范的属性，未出现在CSS规范草案中,IE跟火狐不支持，Safari跟Chrome支持 */
@@ -19,6 +42,7 @@
 	-webkit-line-clamp:<number>;
 	height: 36px;
 ```
+
 
 #### 手机端 动态改变标签中的内容 为空格 出出现不对齐 在元素上添加
 ```css
