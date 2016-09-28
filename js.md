@@ -1,3 +1,46 @@
+#### 打开视频播放，后退视频仍然在播放
+- 部分机型，浏览页面时打开视频播放，点击返回，页面上的视频仍然在播放。解决办法是捕获后退事件，主动调用 onHideCustomView() 方法，并且在该方法里将 onShowCustomView 里关联的view解除关联 （黑人问号脸）
+
+
+#### H5获取LBS信息的js接口
+```javascript
+	navigator.geolocation.getCurrentPosition(showPosition,showError,{  
+		enableHighAccuracy:false，
+		timeout:10*1000,
+		maximumAge:0
+	});
+
+	navigator.geolocation.watchPosition(watchPosition,showError,options);
+
+	//showPosition：定位成功时回调； 
+	//showError：定位出错时回调； 
+	//options：可选的地理定位请求特征 
+	//enableHightAccuracy：可选，是否开启高精度模式，参数默认值为 false 
+	//timeout：可选，单位为ms，浏览器需要在该时间段内完成定位，否则定位失败，默认值为 - - 
+	//infinity，无穷大。如果该值设置较小，会有很高的定位失败率。 
+	//maximumAge：可选，单位ms，重新计算位置的时间间隔。默认为0，即每次时时计算位置信息。
+
+```
+
+
+
+#### Android 和 iOS 实体机和模拟器的差异
+- [详细解读](https://testerhome.com/topics/388)
+
+
+#### Web移动端Fixed布局
+- [解决方案](http://efe.baidu.com/blog/mobile-fixed-layout/)
+
+
+#### 判断是否为iPhone：
+```javascript
+	// 判断是否为 iPhone ：
+	function isAppleMobile() {
+	    return (navigator.platform.indexOf('iPhone') != -1);
+	};
+```
+
+
 #### querySelect 和 querySelectAll（javascript高级选择器）IE8及以上可用
 ```javascript
 	//获取ID
