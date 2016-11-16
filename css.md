@@ -1,3 +1,9 @@
+#### background-repeat 新增 属性值 round / space
+
+
+
+
+
 #### input 类型的date 情况下不支持 placeholder 
 桌面端（Mac）
 Safari 不支持 datepicker，placeholder 正常显示。

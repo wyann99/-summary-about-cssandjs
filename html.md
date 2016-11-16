@@ -123,7 +123,27 @@
 
 
 
+#### 6、手机专题中 横屏比竖屏显示效果更佳
+	进入页面判断手机的方向；
+```javascript
+	window.addEventListenter('orientationchange',function(event){
+		if(window.orientation == 180 || window.orientation == 0){
+			console.log('竖屏');
+		}
+		if(window.orientation == 90 || window.orientation == -90){
+			console.log('横屏');
+		}
+	})
+```
+css3判断手机竖/横屏
+```css
+	@media all and (orientation:landscape){
+		/*横屏*/
+	}
 
-
+	@media all and (orientation:portrait){
+		/*竖屏*/
+	}
+```
 
 	
