@@ -1,8 +1,18 @@
+#### 改变文字的字体颜色
+```css
+	.element {
+		background: -moz-linear-gradient(0deg, #0a5e84, #46feff);
+		background: -webkit-gradient(linear,0 50%,100% 50%,from(#0a5e84),to(#46feff));
+		background: -webkit-linear-gradient(0deg, #0a5e84, #46feff);
+		background: -o-linear-gradient(0deg, #0a5e84, #46feff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	
+```
+
+
 #### background-repeat 新增 属性值 round / space
-
-
-
-
 
 #### input 类型的date 情况下不支持 placeholder 
 桌面端（Mac）

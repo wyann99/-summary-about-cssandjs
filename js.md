@@ -1,4 +1,30 @@
-#### 
+#### 检测浏览器是否支持某属性 及 属性值
+```javascript
+	function testProperty(property){
+		var root = document.documentElement;
+		if(property in root.style){
+			root.classList.add(property.toLowerCase());
+			return true;
+		}
+
+		root.classList.add('no-'+ property.toLowerCase());
+		return false;
+	}
+
+
+	function testValue(id,value,property){
+		var dummy = document.createElement('p');
+		dummy.style[property] = value;
+
+		if(dummy.style[property]){
+			root.calssList.add(id);
+		return true;
+		}
+
+		root.calssList.add('no-' + id);
+		return false;
+	}
+```
 
 
 #### 打开视频播放，后退视频仍然在播放
