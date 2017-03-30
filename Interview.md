@@ -18,9 +18,86 @@ function changeCase(str){
 - 方法2
 
 
+#### arguments.callee 消除函数的执行与函数名的耦合
+```javascript
+function factorial(num){
+	if(num <=1){
+		return 1;
+	}else{
+		return num * arguments.callee(num -1)
+	}
+}
+
+var trueFactorial = factorial;
+
+factorial = function(){
+	return 0;
+}
+
+alert(trueFactorial(5));
+alert(factorial(5));
+
+//120
+//5
+
+// 变量trueFactorial 获得了 factorial 的值，实际上是在另一个位置上保存了一个函数的指针。
+// 然后，又将一个简单地返回0的函数赋值给了factorial 变量。
+// 如果像原来factorial() 那样不使用 arguments.callee ,调用trueFactorial() 就会返回0.
+//在解除了函数体内的代码与函数名的耦合状态之后，trueFactorial() 仍然能够正常的计算阶乘；至于factorial(),它现在只是一个返回0的函数。
+
+```
+
+// 牢记：函数名字仅仅是一个包含指针的变量而已！
 
 
+// caller 保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
 
+//每个函数都包含两个非继承而来的方法：apply() 和 call() 。
+// 这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内的this对象的值。
+
+// apply() 方法接收两个参数：一个是在其中运行函数的作用域，另一个是参数数组。
+//其中，第二个参数可以是 Array 的实例，也可以是 arguments 对象。
+
+// call() ，第一个参数是this值没有变化，其余参数都直接传递给函数。
+// 换句话说，在使用call() 方法时，传递给函数的参数必须逐个列举出来。
+
+//这两个方法的作用相同，区别仅在接收参数的方式不同。
+// 使用apply() 还是 call() ，完全取决于采取哪种给函数传递参数的方式最方便。
+
+// 使用call() （或apply()）来扩充作用域的最大好处，就是对象不需要与方法有任何耦合关系。
+
+
+#### bind() 创建一个函数的实例，其 this 值会被绑定到传给 bind() 函数的值。
+```javascript
+window.color = "red";
+var o = {color:"blue"};
+
+function sayColor(){
+	alert(this.color);
+}
+var objectSayColor = sayColor.bind(o);
+objectSayColor();
+
+//blue
+// sayColor() 调用 bind() 并传入对象 o ,创建了 objectSayColor() 函数。 objectSayColor() 函数的 this 值等于 o,因此即使是在全局作用域中调用这个函数，也会看到"blue"。
+
+```
+
+
+// 基本类型与引用类型的布尔值还有两个区别。
+// 首先，typeof 操作符对基本类型返回"boolean"，而对引用类型返回"object"。
+// 其次，由于boolean 对象是 Boolean 类型的实例，所以使用 instanceof 操作符测试Boolean 对象会返回true，而测试基本类型的布尔值则返回false。
+
+```javascript
+var falseObject = new Boolean(false);
+var result = falseObject && true;
+alert(result); //ture
+
+var falseValue = false;
+result = falseValue && true;
+alert(result); //false;
+
+```
 
 
 

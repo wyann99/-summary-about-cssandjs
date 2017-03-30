@@ -1,4 +1,4 @@
-#### 改变文字的字体颜色
+#### 改变文字的字体渐变
 ```css
 	.element {
 		background: -moz-linear-gradient(0deg, #0a5e84, #46feff);
