@@ -47,11 +47,15 @@ alert(factorial(5));
 
 ```
 
-// 牢记：函数名字仅仅是一个包含指针的变量而已！
+
+#### 牢记：函数名字仅仅是一个包含指针的变量而已！
 
 
-// caller 保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
+#### caller 保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
 
+
+#### 关于apply() 和 call()
+```javascript
 //每个函数都包含两个非继承而来的方法：apply() 和 call() 。
 // 这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内的this对象的值。
 
@@ -65,6 +69,7 @@ alert(factorial(5));
 // 使用apply() 还是 call() ，完全取决于采取哪种给函数传递参数的方式最方便。
 
 // 使用call() （或apply()）来扩充作用域的最大好处，就是对象不需要与方法有任何耦合关系。
+```
 
 
 #### bind() 创建一个函数的实例，其 this 值会被绑定到传给 bind() 函数的值。
@@ -84,11 +89,13 @@ objectSayColor();
 ```
 
 
+#### 基本包装Boolean类型
+```javascript
+
 // 基本类型与引用类型的布尔值还有两个区别。
 // 首先，typeof 操作符对基本类型返回"boolean"，而对引用类型返回"object"。
 // 其次，由于boolean 对象是 Boolean 类型的实例，所以使用 instanceof 操作符测试Boolean 对象会返回true，而测试基本类型的布尔值则返回false。
 
-```javascript
 var falseObject = new Boolean(false);
 var result = falseObject && true;
 alert(result); //ture
