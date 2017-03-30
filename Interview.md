@@ -17,7 +17,7 @@ function changeCase(str){
 ```
 - 方法2
 
-
+<br>
 #### arguments.callee 消除函数的执行与函数名的耦合
 ```javascript
 function factorial(num){
@@ -47,13 +47,13 @@ alert(factorial(5));
 
 ```
 
-
+<br>
 #### 牢记：函数名字仅仅是一个包含指针的变量而已！
 
-
+<br>
 #### caller 保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
 
-
+<br>
 #### 关于apply() 和 call()
 ```javascript
 //每个函数都包含两个非继承而来的方法：apply() 和 call() 。
@@ -71,7 +71,7 @@ alert(factorial(5));
 // 使用call() （或apply()）来扩充作用域的最大好处，就是对象不需要与方法有任何耦合关系。
 ```
 
-
+<br>
 #### bind() 创建一个函数的实例，其 this 值会被绑定到传给 bind() 函数的值。
 ```javascript
 window.color = "red";
@@ -88,7 +88,7 @@ objectSayColor();
 
 ```
 
-
+<br>
 #### 基本包装Boolean类型
 ```javascript
 
@@ -106,8 +106,52 @@ alert(result); //false;
 
 ```
 
+<br>
+#### 字符串中匹配模式的方法
+```javascript
 
+var text = "cat, bat, sat, fat";
+var pattern = /.at/;
 
+var matches = text.match(pattern);
 
+console.log(pattern.exec(text));
+console.log(matches);
+console.log(matches.index);
+console.log(matches[0]);
 
+// ["cat",index:0,input:"cat, bat, sat, fat"];
+// ["cat",index:0,input:"cat, bat, sat, fat"];
+//0
+//cat
+
+// macth(); 本质上与调用 RegExp 的 exec()方法相同。
+// match()方法只接受一个参数，要么是一个正则表达式，要么是一个RegExp对象。
+<br>
+
+var text = "cat, bat, sat, fat";
+var pos = text.search(/at/);
+console.log(pos);
+
+//1
+
+//search() 此方法的唯一参数与 match() 方法参数相同：由字符串或 RegExp 对象指定的一个正则表达式。
+// search() 方法返回字符串中第一个匹配项的索引；如果没有找到匹配项，则返回-1。
+// 而且 search() 方法始终是从字符串开头向后查找模式。
+<br>
+
+var text = "cat, bat, sat, fat";
+var result = text.replace("at","ond");
+console.log(result);
+
+// "cond, bat, sat, fat"
+
+result = text.replace(/at/g, "ond");
+console.log(result);
+
+//"cond, bond, sond, fond"
+
+// replace() ，接受两个参数：第一个参数可以是 RegExp 对象或者一个字符串（这个字符串不会被转换成）
+
+```
 
