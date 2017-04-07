@@ -20,27 +20,27 @@
 - 解决方案：
 	在 video 上添加图层，视频事件添加到这个图层上。
 - 上代码：
-	```javascript
-	var myVid = document.getElementById("video1");//视频video
-	var opcover = document.getElementById("opcover");//控制图层
-	var timer = setInterval(function(){//监听视频是否播放完成
-		if(myVid.ended){
-			console.log("播放结束！");
-			clearInterval(timer);
-		};
-	},500);
-	var clickTag = 1;//防止多次点击
-	opcover.onclick = function(){
-		if(clickTag){
-			myVid.controls = false;
-			myVid.play();
-			clickTag = 0;
-		}else{
-			myVid.pause();
-			clickTag = 1;
-		}
+```javascript
+var myVid = document.getElementById("video1");//视频video
+var opcover = document.getElementById("opcover");//控制图层
+var timer = setInterval(function(){//监听视频是否播放完成
+	if(myVid.ended){
+		console.log("播放结束！");
+		clearInterval(timer);
 	};
-	```
+},500);
+var clickTag = 1;//防止多次点击
+opcover.onclick = function(){
+	if(clickTag){
+		myVid.controls = false;
+		myVid.play();
+		clickTag = 0;
+	}else{
+		myVid.pause();
+		clickTag = 1;
+	}
+};
+```
 
 #### 2、H5上传照片，并且可对图片进行编辑（放大缩小裁剪）
 - 方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 
@@ -64,144 +64,144 @@
 - 后WAP端用的跟PC端改成了一样的，线上地址：[lovephoto](http://house.ifeng.com/lovephoto/show/rule)
 ```javascript
 //fileReader 接口的使用
-	var result=document.getElementById("result");
-	var file=document.getElementById("file");
+var result=document.getElementById("result");
+var file=document.getElementById("file");
 
-	//判断浏览器是否支持FileReader接口  
-	if(typeof FileReader == 'undefined'){  
-		result.InnerHTML="<p>你的浏览器不支持FileReader接口！</p>";  
-		//使选择控件不可操作  
-		file.setAttribute("disabled","disabled");  
-	}
+//判断浏览器是否支持FileReader接口  
+if(typeof FileReader == 'undefined'){  
+	result.InnerHTML="<p>你的浏览器不支持FileReader接口！</p>";  
+	//使选择控件不可操作  
+	file.setAttribute("disabled","disabled");  
+}
 
-	function readAsDataURL(){
-		//检验是否为图像文件
-		var file = document.getElementById("file").files[0];
-		if(!/image\/\w+/.test(file.type)){
-			alert("看清楚，这个需要图片！");
-			return false;
-		}
-		var reader = new FileReader();
-		//将文件以Data URL形式读入页面
-		reader.readAsDataURL(file);
-		reader.onload=function(e){
-			var result=document.getElementById("result");
-			//显示文件
-			result.innerHTML='<img src="' + this.result +'" alt="" />';
-		}
+function readAsDataURL(){
+	//检验是否为图像文件
+	var file = document.getElementById("file").files[0];
+	if(!/image\/\w+/.test(file.type)){
+		alert("看清楚，这个需要图片！");
+		return false;
 	}
+	var reader = new FileReader();
+	//将文件以Data URL形式读入页面
+	reader.readAsDataURL(file);
+	reader.onload=function(e){
+		var result=document.getElementById("result");
+		//显示文件
+		result.innerHTML='<img src="' + this.result +'" alt="" />';
+	}
+}
 
-	function readAsBinaryString(){
-		var file = document.getElementById("file").files[0];
-		var reader = new FileReader();
-		//将文件以二进制形式读入页面
-		reader.readAsBinaryString(file);
-		reader.onload=function(f){
-			var result=document.getElementById("result");
-			//显示文件
-			result.innerHTML=this.result;
-		}
+function readAsBinaryString(){
+	var file = document.getElementById("file").files[0];
+	var reader = new FileReader();
+	//将文件以二进制形式读入页面
+	reader.readAsBinaryString(file);
+	reader.onload=function(f){
+		var result=document.getElementById("result");
+		//显示文件
+		result.innerHTML=this.result;
 	}
+}
 
-	function readAsText(){
-		var file = document.getElementById("file").files[0];
-		var reader = new FileReader();
-		//将文件以文本形式读入页面
-		reader.readAsText(file);
-		reader.onload=function(f){
-			var result=document.getElementById("result");
-			//显示文件
-			result.innerHTML=this.result;
-		}
+function readAsText(){
+	var file = document.getElementById("file").files[0];
+	var reader = new FileReader();
+	//将文件以文本形式读入页面
+	reader.readAsText(file);
+	reader.onload=function(f){
+		var result=document.getElementById("result");
+		//显示文件
+		result.innerHTML=this.result;
 	}
+}
 ```
 
 
 #### 5、一些兼容性问题
-	ios 中 标签不为<a>标签，点击会失效；改成<a>标签后，点击生效；
-	输出文本注意 英文及数字 折行问题；
+- ios 中 标签不为<a>标签，点击会失效；改成<a>标签后，点击生效；
+- 输出文本注意 英文及数字 折行问题；
 
 
 
 #### 6、手机专题中 横屏比竖屏显示效果更佳
-	进入页面判断手机的方向；
+- 进入页面判断手机的方向；
 ```javascript
-	window.addEventListenter('orientationchange',function(event){
-		if(window.orientation == 180 || window.orientation == 0){
-			console.log('竖屏');
-		}
-		if(window.orientation == 90 || window.orientation == -90){
-			console.log('横屏');
-		}
-	})
+window.addEventListenter('orientationchange',function(event){
+	if(window.orientation == 180 || window.orientation == 0){
+		console.log('竖屏');
+	}
+	if(window.orientation == 90 || window.orientation == -90){
+		console.log('横屏');
+	}
+})
 ```
 css3判断手机竖/横屏
 ```css
-	@media all and (orientation:landscape){
-		/*横屏*/
-	}
+@media all and (orientation:landscape){
+	/*横屏*/
+}
 
-	@media all and (orientation:portrait){
-		/*竖屏*/
-	}
+@media all and (orientation:portrait){
+	/*竖屏*/
+}
 ```
 
 
-#### ios 音乐不自动播放
-	但是对于背景音乐，又必须加载的时候就要执行，怎么办，直接调用js 来自动触发。
+#### 7、ios 音乐不自动播放
+- 但是对于背景音乐，又必须加载的时候就要执行，怎么办，直接调用js 来自动触发。
 ```html
-	<audio id="bgaudio" src="bg-music.mp3" loop="loop"></audio>  
-	<script>  
-		document.getElementById('bgaudio').play();  
-	</script> 
+<audio id="bgaudio" src="bg-music.mp3" loop="loop"></audio>  
+<script>  
+	document.getElementById('bgaudio').play();  
+</script> 
 ```
 
-	不用怀疑 ，就这几行代码，兼容ios 和 android
-	当然有特别的 ios 设置后  不兼容，我们可以采用下面的方式，不过注意只能在微信浏览器里面打开
+- 不用怀疑 ，就这几行代码，兼容ios 和 android
+- 当然有特别的 ios 设置后  不兼容，我们可以采用下面的方式，不过注意只能在微信浏览器里面打开
 
 ```html
-	<audio preload="preload" controls id="car_audio" src="bg-music.mp3" loop></audio>  
-	<script>  
-		setTimeout(function(){  
-			$(window).scrollTop(1);  
-		},0);  
-		document.getElementById('car_audio').play();
-		document.addEventListener("WeixinJSBridgeReady", function(){  
-			WeixinJSBridge.invoke('getNetworkType',{}, function(e){  
-				document.getElementById('car_audio').play();  
-			});  
-		},false);  
-	</script>  
+<audio preload="preload" controls id="car_audio" src="bg-music.mp3" loop></audio>  
+<script>  
+	setTimeout(function(){  
+		$(window).scrollTop(1);  
+	},0);  
+	document.getElementById('car_audio').play();
+	document.addEventListener("WeixinJSBridgeReady", function(){  
+		WeixinJSBridge.invoke('getNetworkType',{}, function(e){  
+			document.getElementById('car_audio').play();  
+		});  
+	},false);  
+</script>  
 ```
 
 
 
 #### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法
-	引入 [hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill)
-	接下来，修改绘制图片的代码
-	将 init 函数修改成下面这样：
+- 引入 [hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill)
+- 接下来，修改绘制图片的代码
+- 将 init 函数修改成下面这样：
 ```javascript
-	function init() {
-	    var canvas = document.querySelector('canvas');
-	    var ctx = canvas.getContext('2d');
+function init() {
+    var canvas = document.querySelector('canvas');
+    var ctx = canvas.getContext('2d');
 
-	    // polyfill 提供了这个方法用来获取设备的 pixel ratio
-	    var getPixelRatio = function(context) {
-	        var backingStore = context.backingStorePixelRatio ||
-	            context.webkitBackingStorePixelRatio ||
-	            context.mozBackingStorePixelRatio ||
-	            context.msBackingStorePixelRatio ||
-	            context.oBackingStorePixelRatio ||
-	            context.backingStorePixelRatio || 1;
-	    
-	        return (window.devicePixelRatio || 1) / backingStore;
-	    };
+    // polyfill 提供了这个方法用来获取设备的 pixel ratio
+    var getPixelRatio = function(context) {
+        var backingStore = context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio || 1;
+    
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
 
-	    var ratio = getPixelRatio(ctx);
-	    
-	    // 注意，这里的 width 和 height 变成了 width * ratio 和 height * ratio
-	    ctx.drawImage(document.querySelector('img'), 0, 0, 300 * ratio, 90 * ratio);
-	}
+    var ratio = getPixelRatio(ctx);
+    
+    // 注意，这里的 width 和 height 变成了 width * ratio 和 height * ratio
+    ctx.drawImage(document.querySelector('img'), 0, 0, 300 * ratio, 90 * ratio);
+}
 
 ```
 ##### polyfill 的代码十分简短明了，它做了两件事：一是将 canvas 的高和宽分别乘以 ratio 将其放大，然后又用 CSS 将高和宽限制成初始的大小；二是 hack canvas 中常用的函数，如：fillRect, clearRect, lineTo, arc 等，将它们的参数都乘以 ratio，以方便我们可以像以前那样使用这些方法，而不用在传参的时候手动乘以 ratio。
