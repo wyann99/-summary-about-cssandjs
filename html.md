@@ -40,13 +40,16 @@
 			clickTag = 1;
 		}
 	};
-	```
+```
 
+
+<br>
 #### 2、H5上传照片，并且可对图片进行编辑（放大缩小裁剪）
 - 方案参考：[H5拍照应用开发经历的那些坑儿](http://www.cnwander.com/?p=41) 
 	或者 [htmlPhoto](https://github.com/jljsj33/htmlPhoto)
 
 
+<br>
 #### 3、欧洲杯专题活动
 - H5本地存储 localStorage <br>
 	local storage把只把数据存储在了客户端使用，不会发送的服务器上（除非你故意这样做）。<br>
@@ -57,7 +60,7 @@
 	参考资料：[获取用户基本信息](http://mp.weixin.qq.com/wiki/14/bb5031008f1494a59c6f71fa0f319c66.html)
 
 
-
+<br>
 #### 4、（大湖以爱之铭专题）上传图片的相关问题
 - 类似朋友圈上传图片的功能；专题做了两个版本PC端跟WAP端。
 - PC端的上传用的插件pulpload；[具体使用](https://github.com/moxiecode/plupload/tree/master/js)
@@ -117,12 +120,13 @@
 ```
 
 
+<br>
 #### 5、一些兼容性问题
 	ios 中 标签不为<a>标签，点击会失效；改成<a>标签后，点击生效；
 	输出文本注意 英文及数字 折行问题；
 
 
-
+<br>
 #### 6、手机专题中 横屏比竖屏显示效果更佳
 	进入页面判断手机的方向；
 ```javascript
@@ -147,7 +151,7 @@ css3判断手机竖/横屏
 ```
 
 
-
+<br>
 #### 7、Canvas 在高清屏下绘制图片、文字变模糊的解决方法
 	引入 [hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill)
 	接下来，修改绘制图片的代码
