@@ -146,7 +146,42 @@ css3判断手机竖/横屏
 	}
 ```
 
+
+
+#### Canvas 在高清屏下绘制图片、文字变模糊的解决方法
+	引入 [hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill)
+	接下来，修改绘制图片的代码
+	将 init 函数修改成下面这样：
+```javascript
+	function init() {
+	    var canvas = document.querySelector('canvas');
+	    var ctx = canvas.getContext('2d');
+
+	    // polyfill 提供了这个方法用来获取设备的 pixel ratio
+	    var getPixelRatio = function(context) {
+	        var backingStore = context.backingStorePixelRatio ||
+	            context.webkitBackingStorePixelRatio ||
+	            context.mozBackingStorePixelRatio ||
+	            context.msBackingStorePixelRatio ||
+	            context.oBackingStorePixelRatio ||
+	            context.backingStorePixelRatio || 1;
+	    
+	        return (window.devicePixelRatio || 1) / backingStore;
+	    };
+
+	    var ratio = getPixelRatio(ctx);
+	    
+	    // 注意，这里的 width 和 height 变成了 width * ratio 和 height * ratio
+	    ctx.drawImage(document.querySelector('img'), 0, 0, 300 * ratio, 90 * ratio);
+	}
+
+```
+###### polyfill 的代码十分简短明了，它做了两件事：一是将 canvas 的高和宽分别乘以 ratio 将其放大，然后又用 CSS 将高和宽限制成初始的大小；二是 hack canvas 中常用的函数，如：fillRect, clearRect, lineTo, arc 等，将它们的参数都乘以 ratio，以方便我们可以像以前那样使用这些方法，而不用在传参的时候手动乘以 ratio。
 	
+
+
+
+
 
 
 	
