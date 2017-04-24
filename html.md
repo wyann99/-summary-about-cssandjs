@@ -207,7 +207,41 @@ function init() {
 ##### polyfill 的代码十分简短明了，它做了两件事：一是将 canvas 的高和宽分别乘以 ratio 将其放大，然后又用 CSS 将高和宽限制成初始的大小；二是 hack canvas 中常用的函数，如：fillRect, clearRect, lineTo, arc 等，将它们的参数都乘以 ratio，以方便我们可以像以前那样使用这些方法，而不用在传参的时候手动乘以 ratio。
 	
 
+#### 9、JS动态计算 元素圆周分布
+```javascript
+var lis = document.querySelectorAll("li");
+var lisLength = lis.length;
 
+// 圆的半径 radius
+var width = document.querySelector("#parent");
+	radius = width/2;
+
+// 圆形菜单的起始、终止角度
+var startAngle = 0,
+	endAngle = -360;
+
+// 两个子菜单间的夹角 gap
+var total = lisLength,
+	gap = (endAngle - startAngle)/total;
+
+// 角度 -> 弧度
+var radian = Math.PI /180;
+
+for(var i = 0; i< lisLength; i++){
+	// 当前子菜单与X轴正向的夹角 θ（角度 -> 弧度）
+	var myAngle = (startAngle + gap * i)* radian; //θ
+
+	// 计算当前子菜单相对于左上角（θ,θ）的坐标（x， y）
+	var myX = radius + radius * Math.cos(myAngle), //x = r+ r*cos(θ)
+		myY = radius + radius * Math.sin(myAngle); //y = r+ r*sin(θ)
+
+	// 设置当前子菜单的位置 (left, top) = (x, y)
+	lis[i].style.left = myX + 'px';
+	lis[i].style.top = myY + 'px';
+
+}
+
+```
 
 
 
