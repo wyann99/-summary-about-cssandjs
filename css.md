@@ -14,6 +14,8 @@
 
 #### background-repeat 新增 属性值 round / space
 
+
+
 #### input 类型的date 情况下不支持 placeholder 
 桌面端（Mac）
 Safari 不支持 datepicker，placeholder 正常显示。
@@ -29,6 +31,8 @@ Andorid 4.0.4 无 datepicker 功能，不显示 placeholder
 	<input type="text" placeholder="Date" onfocus="(this.type='data')" id="date">
 ```
 - 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了。
+
+
 
 #### placeholder line-height
 - input 的 placeholder 会出现文本位置偏上的情况：

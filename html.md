@@ -176,7 +176,7 @@ css3判断手机竖/横屏
 
 
 
-#### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法
+#### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法 [详见原文](https://segmentfault.com/a/1190000003730246)
 - 引入 [hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill)
 - 接下来，修改绘制图片的代码
 - 将 init 函数修改成下面这样：
@@ -204,7 +204,7 @@ function init() {
 }
 
 ```
-##### polyfill 的代码十分简短明了，它做了两件事：一是将 canvas 的高和宽分别乘以 ratio 将其放大，然后又用 CSS 将高和宽限制成初始的大小；二是 hack canvas 中常用的函数，如：fillRect, clearRect, lineTo, arc 等，将它们的参数都乘以 ratio，以方便我们可以像以前那样使用这些方法，而不用在传参的时候手动乘以 ratio。
+- polyfill 的代码十分简短明了，它做了两件事：一是将 canvas 的高和宽分别乘以 ratio 将其放大，然后又用 CSS 将高和宽限制成初始的大小；二是 hack canvas 中常用的函数，如：fillRect, clearRect, lineTo, arc 等，将它们的参数都乘以 ratio，以方便我们可以像以前那样使用这些方法，而不用在传参的时候手动乘以 ratio。
 	
 
 
