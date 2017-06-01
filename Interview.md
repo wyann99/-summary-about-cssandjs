@@ -15,7 +15,6 @@ function changeCase(str){
 	}
 	changeCase('get-element-by-id');
 ```
-- 方法2
 
 <br>
 

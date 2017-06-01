@@ -176,7 +176,11 @@ css3判断手机竖/横屏
 
 
 
+<<<<<<< HEAD
 #### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法 [详见原文](https://segmentfault.com/a/1190000003730246)
+=======
+#### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法（焕城季的 弹幕）
+>>>>>>> 97945a50d9f4fc065071a82d47bc38be11a96803
 - 引入 [hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill)
 - 接下来，修改绘制图片的代码
 - 将 init 函数修改成下面这样：
@@ -206,6 +210,58 @@ function init() {
 ```
 - polyfill 的代码十分简短明了，它做了两件事：一是将 canvas 的高和宽分别乘以 ratio 将其放大，然后又用 CSS 将高和宽限制成初始的大小；二是 hack canvas 中常用的函数，如：fillRect, clearRect, lineTo, arc 等，将它们的参数都乘以 ratio，以方便我们可以像以前那样使用这些方法，而不用在传参的时候手动乘以 ratio。
 	
+
+#### 9、JS动态计算 元素圆周分布 （ 青年置业说 及 环球GO ）
+```javascript
+var lis = document.querySelectorAll("li");
+var lisLength = lis.length;
+
+// 圆的半径 radius
+var width = document.querySelector("#parent");
+	radius = width/2;
+
+// 圆形菜单的起始、终止角度
+var startAngle = 0,
+	endAngle = -360;
+
+// 两个子菜单间的夹角 gap
+var total = lisLength,
+	gap = (endAngle - startAngle)/total;
+
+// 角度 -> 弧度
+var radian = Math.PI /180;
+
+for(var i = 0; i< lisLength; i++){
+	// 当前子菜单与X轴正向的夹角 θ（角度 -> 弧度）
+	var myAngle = (startAngle + gap * i)* radian; //θ
+
+	// 计算当前子菜单相对于左上角（θ,θ）的坐标（x， y）
+	var myX = radius + radius * Math.cos(myAngle), //x = r+ r*cos(θ)
+		myY = radius + radius * Math.sin(myAngle); //y = r+ r*sin(θ)
+
+	// 设置当前子菜单的位置 (left, top) = (x, y)
+	lis[i].style.left = myX + 'px';
+	lis[i].style.top = myY + 'px';
+
+}
+```
+##### 最终效果是360度分布的一个环形菜单， 增加子菜单个数，可动态计算位置，不需要CSS定位；
+
+
+
+#### 10、localstorage 清除问题
+##### IOS 微信清除webview 的缓存不能清除 localstorage
+- 在微信应用中，由于通过code去换取openID 需要一定的时间，我们在公众号开发过程中，把openID等关键信息放在localstorage 里面，这样用户下次进入网站应用时，可以先判断本地存储里面有没有这些字段，有就直接使用，无需重复换取。在安卓中，用户清空微信缓存或者切换账号都会删除localstorage；但是IOS不会，导致切换账号后，localstorage的信息一直保留，页面逻辑依旧使用老数据，网站无法正常使用。处理办法：判断是否为IOS，如是，通过js对localstorage强制清空，让页面缓存的数据全部重新获取，避开ios微信不会清除本地存储的bug。
+
+
+
+
+
+
+
+
+
+
 
 
 
