@@ -1,7 +1,6 @@
 #### ※已知有字符串foo='get-element-by-id',写一个function将其转化成驼峰表示法”getElementById”
 - 方法1
 ```javascript
-
 function changeCase(str){
 		var Arr = str.split('-');
 		var Arrb = [];
@@ -18,6 +17,7 @@ function changeCase(str){
 
 ```
 <br>
+
 #### ※arguments.callee 消除函数的执行与函数名的耦合
 ```javascript
 function factorial(num){
@@ -45,12 +45,15 @@ alert(factorial(5));// 5
 ```
 
 <br>
+
 #### ※牢记：函数名字仅仅是一个包含指针的变量而已！
 
 <br>
+
 #### ※caller 保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
 
 <br>
+
 #### ※关于apply() 和 call()
 ```javascript
 // 每个函数都包含两个非继承而来的方法：apply() 和 call() 。
@@ -70,6 +73,7 @@ alert(factorial(5));// 5
 ```
 
 <br>
+
 #### ※ bind() 创建一个函数的实例，其 this 值会被绑定到传给 bind() 函数的值。
 ```javascript
 
@@ -88,6 +92,7 @@ objectSayColor();
 ```
 
 <br>
+
 #### ※ 基本包装Boolean类型
 ```javascript
 
@@ -104,6 +109,7 @@ result = falseValue && true;
 alert(result); // false 
 
 ```
+<br>
 
 #### ※ 字符串中匹配模式的方法
 ```javascript
@@ -138,25 +144,25 @@ console.log(result);// "cond, bond, sond, fond"
 //replace() ，接受两个参数：第一个参数可以是 RegExp 对象或者一个字符串（这个字符串不会被转换成）
 
 ```
+<br>
 
-#### ※ window.onload 和 $(document).ready(function(){...}) 的区别
+#### ※ window.onload = function(){...} 和 $(document).ready(function(){...}) 的区别
 ```javascript
-	window.onload = function(){...}
-	//加载时机：必须等待网页全部加载完毕（包括图片等），然后再执行JS代码
-	//执行次数：只能执行一次，如果第二次，那就第一次执行会被覆盖
+window.onload = function(){...}
+//加载时机：必须等待网页全部加载完毕（包括图片等），然后再执行JS代码
+//执行次数：只能执行一次，如果第二次，那就第一次执行会被覆盖
 
-	$(document).ready(function(){...})
-	//加载时机： 只需要等待网页的DOM结构加载完毕，就再执行JS代码
-	//执行次数： 可以执行多次，弟N次都不会被上一次覆盖
+$(document).ready(function(){...})
+//加载时机： 只需要等待网页的DOM结构加载完毕，就再执行JS代码
+//执行次数： 可以执行多次，弟N次都不会被上一次覆盖
 
+(function($){......})(jQuery); 
+//相当于匿名函数、形成闭包
 
-	(function($){......})(jQuery); 
-	//相当于匿名函数、形成闭包
-
-	$(function(){...}); 
-	jQuery(function(){...}); 
-	$(document).ready(function(){...});
-	//以上作用相同
+$(function(){...}); 
+jQuery(function(){...}); 
+$(document).ready(function(){...});
+//以上作用相同
 
 ```
 
