@@ -143,16 +143,11 @@ console.log(result);// "cond, bond, sond, fond"
 ```javascript
 	window.onload = function(){...}
 	//加载时机：必须等待网页全部加载完毕（包括图片等），然后再执行JS代码
-	//
-	//
-	//
-
+	//执行次数：只能执行一次，如果第二次，那就第一次执行会被覆盖
 
 	$(document).ready(function(){...})
 	//加载时机： 只需要等待网页的DOM结构加载完毕，就再执行JS代码
-	//
-	//
-	//
+	//执行次数： 可以执行多次，弟N次都不会被上一次覆盖
 
 
 	(function($){......})(jQuery); 
@@ -162,8 +157,6 @@ console.log(result);// "cond, bond, sond, fond"
 	jQuery(function(){...}); 
 	$(document).ready(function(){...});
 	//以上作用相同
-
-	
 
 ```
 
