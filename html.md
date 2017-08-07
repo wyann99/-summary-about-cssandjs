@@ -175,12 +175,7 @@ css3判断手机竖/横屏
 ```
 
 
-
-<<<<<<< HEAD
-#### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法 [详见原文](https://segmentfault.com/a/1190000003730246)
-=======
-#### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法（焕城季的 弹幕）
->>>>>>> 97945a50d9f4fc065071a82d47bc38be11a96803
+#### 8、Canvas 在高清屏下绘制图片、文字变模糊的解决方法（焕城季的 弹幕） [详见原文](https://segmentfault.com/a/1190000003730246)
 - 引入 [hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill)
 - 接下来，修改绘制图片的代码
 - 将 init 函数修改成下面这样：
@@ -256,9 +251,29 @@ for(var i = 0; i< lisLength; i++){
 
 
 
+#### 11、使用javascript下载网页上的图片
+``` javascript
+function downloadImage(src) {
+    var a = $("<a></a>").attr("href", src).attr("download", "img.png").appendTo("body");
 
+    a[0].click();
+    a.remove();
+}
 
+function downloadImage(src) {
+    var canvas = document.createElement('canvas');
+    var img = document.createElement('img');
+    img.onload = function(e) {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var context = canvas.getContext('2d');
+        context.drawImage(img, 0, 0, img.width, img.height);
+        window.navigator.msSaveBlob(canvas.msToBlob(),'image.jpg');
+    }
+    img.src = src;
+}
 
+```
 
 
 
