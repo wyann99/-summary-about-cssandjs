@@ -1,4 +1,59 @@
-#### ※已知有字符串foo='get-element-by-id',写一个function将其转化成驼峰表示法”getElementById”
+### 怎样在一个代码环境中快速的找到this所指的对象呢？
+* 我想要注意以下三个方面： 
+	* 1、 要清楚的知道对于函数的每一步操作是拷贝还是引用（调用） 
+	* 2、 要清楚的知道函数的拥有者（owner）是什么 
+	* 3、 对于一个function，我们要搞清楚我们是把它当作函数使用还是在当作类使用 
+
+* 补充： 
+	* 1.在实例和类上都可以直接定义函数 
+	* 2.不能在实例上使用prototype定义函数，只能在类上使用prototype定义函数 
+	* 3.类上直接定义的函数不能使用this访问对象的属性 
+	* 4.在类的prototype上建立的函数可以用this,在类内部定义的函数可以使用this,在对象实例上建立的函数额可以this 
+```javascript
+window.alert=function (msg) { 
+	document.write(msg+"<br>"); 
+} 
+function say() { 
+	this.f = "props"; 
+	this.func3 = function(){
+		alert("f3," + this.f);
+	} 
+} 
+say.func1 = function(){
+	alert("func1," + this.f);
+}; //Error,类上直接定义的函数，不能使用this 
+
+say.prototype.func2 = function(){
+	alert("func2," + this.f);
+} 
+say.func1(); 
+(new say()).func2(); 
+say.func2(); //Error, 在用prototype定义的函数，必须实例化对象才能调用 
+say.func3(); //Error,在类上定义的函数，必须实例化才能调用 
+(new say()).func3(); 
+var obj={ 
+	fld1:10, 
+	func1:function(msg){
+		alert(msg);
+	}, 
+	func4:function(){
+		alert(this.fld1);
+	} 
+} 
+obj.prototype.func=function(){
+	alert("func");
+}; //Error 实例对象上不能使用prototype定义对象 
+obj.func2=function(){
+	alert("func2,"+this.fld1);
+}; //ok,实例上直接定义的函数可以使用this,访问对象的属性
+alert(obj.fld1); 
+obj.func1("func1"); 
+obj.func2(); 
+obj.func4(); 
+
+```
+
+### ※已知有字符串foo='get-element-by-id',写一个function将其转化成驼峰表示法”getElementById”
 - 方法1
 ```javascript
 function changeCase(str){
@@ -16,9 +71,9 @@ function changeCase(str){
 	changeCase('get-element-by-id');
 
 ```
-<br>
 
-#### ※arguments.callee 消除函数的执行与函数名的耦合
+
+### ※arguments.callee 消除函数的执行与函数名的耦合
 ```javascript
 function factorial(num){
 	if(num <=1){
@@ -44,17 +99,17 @@ alert(factorial(5));// 5
 
 ```
 
-<br>
 
-#### ※牢记：函数名字仅仅是一个包含指针的变量而已！
 
-<br>
+### ※牢记：函数名字仅仅是一个包含指针的变量而已！
 
-#### ※caller 保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
 
-<br>
 
-#### ※关于apply() 和 call()
+### ※caller 保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null
+
+
+
+### ※关于apply() 和 call()
 ```javascript
 // 每个函数都包含两个非继承而来的方法：apply() 和 call() 。
 //  这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内的this对象的值。
@@ -72,9 +127,9 @@ alert(factorial(5));// 5
 
 ```
 
-<br>
 
-#### ※ bind() 创建一个函数的实例，其 this 值会被绑定到传给 bind() 函数的值。
+
+### ※ bind() 创建一个函数的实例，其 this 值会被绑定到传给 bind() 函数的值。
 ```javascript
 
 window.color = "red";
@@ -91,9 +146,9 @@ objectSayColor();
 
 ```
 
-<br>
 
-#### ※ 基本包装Boolean类型
+
+### ※ 基本包装Boolean类型
 ```javascript
 
 // 基本类型与引用类型的布尔值还有两个区别。 
@@ -109,9 +164,9 @@ result = falseValue && true;
 alert(result); // false 
 
 ```
-<br>
 
-#### ※ 字符串中匹配模式的方法
+
+### ※ 字符串中匹配模式的方法
 ```javascript
 
 var text = "cat, bat, sat, fat";
@@ -144,9 +199,9 @@ console.log(result);// "cond, bond, sond, fond"
 //replace() ，接受两个参数：第一个参数可以是 RegExp 对象或者一个字符串（这个字符串不会被转换成）
 
 ```
-<br>
 
-#### ※ window.onload = function(){...} 和 $(document).ready(function(){...}) 的区别
+
+### ※ window.onload = function(){...} 和 $(document).ready(function(){...}) 的区别
 ```javascript
 window.onload = function(){...}
 //加载时机：必须等待网页全部加载完毕（包括图片等），然后再执行JS代码
