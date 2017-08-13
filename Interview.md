@@ -1,3 +1,18 @@
+### js创建对象的方法
+* 对象字面量
+* 创建Object实例
+
+* 对象创建模式
+	* 工厂模式
+	* 构造函数模式
+	* 原型模式
+[创建对象的方法](http://www.cnblogs.com/FromSnatch/archive/2012/05/20/2510682.html)
+
+### js常见的几种算法
+[JavaScript版几种常见排序算法](http://www.cnblogs.com/idche/archive/2011/02/16/1956397.html)
+[JS的十大经典算法排序](http://www.cnblogs.com/dushao/p/6004883.html)
+
+
 ### 怎样在一个代码环境中快速的找到this所指的对象呢？
 * 我想要注意以下三个方面： 
 	* 1、 要清楚的知道对于函数的每一步操作是拷贝还是引用（调用） 
@@ -9,6 +24,7 @@
 	* 2.不能在实例上使用prototype定义函数，只能在类上使用prototype定义函数 
 	* 3.类上直接定义的函数不能使用this访问对象的属性 
 	* 4.在类的prototype上建立的函数可以用this,在类内部定义的函数可以使用this,在对象实例上建立的函数额可以this 
+
 ```javascript
 	window.alert=function (msg) { 
 		document.write(msg+"<br>"); 
