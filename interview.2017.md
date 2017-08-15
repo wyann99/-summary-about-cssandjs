@@ -16,6 +16,8 @@
 * computed中的方法和methods中定义的方法有什么区别
 * 组件之间怎么通信
 * 对变量的操作
+* 生命周期
+* 优势
 
 
 ### git
@@ -77,10 +79,18 @@ change('92658');
 	* [Javascript this指针详解](http://blog.csdn.net/daiwei15/article/details/7635463)
 	* [深入剖析jsonp跨域原理](http://www.cnblogs.com/digdeep/p/4170059.html)
 	* [GIT的基本操作](http://www.cnblogs.com/my-freedom/p/5701427.html)
-	* [javascript实现阿拉伯数字和中文数字互相转换](http://blog.csdn.net/gmd_web/article/details/55254131)
+	* javascript实现阿拉伯数字和中文数字互相转换
+		* [简单版](http://blog.csdn.net/gmd_web/article/details/55254131)
+		* [复杂版](https://segmentfault.com/a/1190000008962568)
 
 
 
+##
+* 数据结构
+* 算法
+* 设计模式
+* 编译原理
+* 进程间的通信
 
-
+* 数据转换 undefined null NaN
 
