@@ -31,6 +31,8 @@
 ### 其他
 * 用过node的什么
 * 用过express 和 mongdb 么
+* 简述下MVC思想
+* HTTP协议，输入地址后的反应
 
 
 ### 一些JS操作问题

@@ -276,8 +276,23 @@ function downloadImage(src) {
 ```
 
 
+#### 12、关于css动画不能重复播放：[参考](http://www.jianshu.com/p/4bfc167946f0)
+``` javascript
+// 点赞功能
+element = document.getElementById("zanLive");
+    //重设transition,通过：
+element.addEventListener("touchstart", function(e) {
+    e.preventDefault;
+    // ->移除class
+    element.classList.remove("Ani");
+    // ->触发回流，真实的魔法！！！...
+    // 缺少下面这句不会运行。尝试删除这句动画不会被再次触发
+    element.offsetWidth = element.offsetWidth;
+    // ->重新添加class
+    element.classList.add("Ani");
+}, false);
 
-
+```
 
 
 
