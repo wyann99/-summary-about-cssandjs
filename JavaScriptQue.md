@@ -164,5 +164,32 @@
 
 ```
 
+#### 输出下列结果
+```javaScript
+var a = null == undefined ? 1: 'abg'
+var b= typeof(a)
+var c = typeof(b)
+var d = typeof(null)
+
+console.log(a, b, c, d)
+// 1 "number" "string" "object"
+
+var a = null === undefined ? 1: 'abg'
+var b= typeof(a)
+var c = typeof(b)
+var d = typeof(null)
+
+console.log(a, b, c, d)
+// abg string string object
+
+```
+
+
+
+
+
+
+
+
 * 参考
 	* [20个必会的JavaScript面试题](http://web.jobbole.com/90842/)

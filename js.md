@@ -118,13 +118,13 @@ function supportCss3(style){
 ```javascript
 	//获取ID
 	document.getElementbyId("test");
-	document.querySelect("#test");
-	document.querySelectAll("#test")[0];
+	document.querySelector("#test");
+	document.querySelectorAll("#test")[0];
 
 	//获取class
 	document.getElementsByClassName("type");
-	document.querySelect(".type");
-	document.querySelectAll(".type");
+	document.querySelector(".type");
+	document.querySelectorAll(".type");
 
 	//querySelector返回的是一个对象，querySelectorAll返回的一个集合(NodeList)
 ```
