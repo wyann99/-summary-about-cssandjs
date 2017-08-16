@@ -168,6 +168,34 @@ c.fun(2)与c.fun(3)	//参考b 的fun(0).fun(1).fun(2) ，所以会console.log 1,
 
 ```
 
+#### 请写出下列语句的返回结果并解释原因。
+```javaScript
+
+function Sjk() {
+    getVal = function () { console.log(1); };
+    return this;
+}
+
+Sjk.getVal = function () { console.log(2);};
+
+Sjk.prototype.getVal = function () { console.log(3);};
+var getVal = function () { console.log(4);};
+function getVal() { console.log(5);}
+
+//请写出以下语句的运行结果，并解释原因
+Sjk.getVal(); //2
+getVal(); //4
+Sjk().getVal(); //1
+getVal(); //1
+new Sjk().getVal(); //3
+
+```
+
+
+
+
+
+
 * 参考
 	* [20个必会的JavaScript面试题](http://web.jobbole.com/90842/)
 
