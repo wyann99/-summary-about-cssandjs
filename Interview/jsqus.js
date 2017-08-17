@@ -260,4 +260,48 @@ console.log('end');
 
 
 
+function Animal (name, color) {
+	this.name = name;
+	this.color = color;
+}
+Animal.prototype.sleep = function(){
+	console.log(this.name + 'sleep');
+}
+
+function Cat(){
+	Animal.apply(this, arguments);
+}
+Cat.prototype = chain(Animal.prototype);
+Cat.prototype.constructor = Cat;
+Cat.prototype.greenEye = true;
+Cat.prototype.mev = function(){
+	console.log(this.name + 'mev');
+}
+
+function PersianCat(){
+	Cat.apply(this, arguments)
+}
+PersianCat.prototype = chain(Cat.prototype)
+PersianCat.prototype.constructor = PersianCat
+PersianCat.prototype.name = 'persian cat'
+PersianCat.prototype.blueEye = true
+PersianCat.prototype.mev = function(){
+	Cat.prototype.mev.call(this);
+	console.log(this.name + 'miaov')
+}
+
+var a1 = new Animal('倒霉熊', 'white');
+a1.sleep(); 
+
+var c2 = new Cat('没头脑', 'red');
+c2.mev(); 
+c2.sleep(); 
+console.log(c2.greenEye) 
+
+var p3 = new PersianCat('不高兴', 'yellow');
+p3.mev(); 
+p3.sleep(); 
+console.log(p3.greenEye)
+console.log(p3.blueEye) 
+console.log(p3.__proto__.name)
 
