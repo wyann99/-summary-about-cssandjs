@@ -31,6 +31,13 @@ function env(){
 
 env();
 
+function a (){
+	console.log(9)
+	return this;
+}
+
+var s = a();
+
 // 一和二对比可知函数在那个作用域下定义，那此函数就在那个作用域下开始往作用域链上找变量;
 
 

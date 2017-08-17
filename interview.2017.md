@@ -31,6 +31,9 @@
 ### 其他
 * 用过node的什么
 * 用过express 和 mongdb 么
+* 简述下MVC思想
+* HTTP协议，输入地址后的反应
+
 
 
 ### 一些JS操作问题
@@ -82,6 +85,68 @@ change('92658');
 	* javascript实现阿拉伯数字和中文数字互相转换
 		* [简单版](http://blog.csdn.net/gmd_web/article/details/55254131)
 		* [复杂版](https://segmentfault.com/a/1190000008962568)
+
+
+## 三节课
+* js原型链
+* 数组排序 正序 逆序
+* 简述浏览器的渲染过程
+* H5的新特性
+* 你在过去的公司或者在过去的项目中学到了什么东西？
+
+```javaScript
+// 一
+function Sjk() {
+    getVal = function () { console.log(1); };
+    return this;
+}
+Sjk.getVal = function () { console.log(2);};
+Sjk.prototype.getVal = function () { console.log(3);};
+var getVal = function () { console.log(4);};
+function getVal() { console.log(5);}
+
+//请写出以下语句的运行结果，并解释原因
+Sjk.getVal();
+getVal();
+Sjk().getVal();
+getVal();
+new Sjk().getVal();
+
+// 二
+var arr = [12, 3, 1, 5, 34, 10, 22];
+function sortArr(arr, sym){
+  var newArr = arr;
+  if(sym == '>'){
+    return arr.sort(function(a,b){return a<b?1:-1})
+  }else{
+    return arr.sort(function(a,b){return a>b?a:-1})
+  }
+}
+
+sortArr(arr, '>');
+
+// 三
+// 渲染过程
+// i.渲染是以流式进行的。不需要得到全部数据再渲染，如：HTML文件下载多少就渲染多少；
+// ii.大多数HTML外部资源都不会阻塞UI线程，如：CSS、IMG、Flash等，没有load完毕的图片会留一个空位置在那里；
+// iii.大多数的HTML元素都是渲染出DOM便立刻显示的；
+// iiii.HTML从上到下解析，该过程不可逆（参考 i）。但会出现reflow（重排） and repaint（重绘）。
+
+// 遇到script标签 浏览器会暂停渲染HTML，将script交给js引擎编译执行，js会创建textNode
+
+// 四
+// 文档类型 <!DOCTYPE HTML>
+// 新结构标签：header footer nav section article hgroup aside
+// 新增内联元素 figure figcaption mark time 
+// 全新的表达设计 email url number range search color Date pickers(date,month)
+// 绘图跟多媒体：canvas svg audio video
+// 离线缓存 web storage
+
+
+// 五
+https://www.dajie.com/corp/3490059/discuss/6887634
+
+```
 
 
 
