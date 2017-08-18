@@ -305,3 +305,36 @@ console.log(p3.greenEye)
 console.log(p3.blueEye) 
 console.log(p3.__proto__.name)
 
+
+for(var i = 0; i < 5; i++){
+	(function(j){
+		setTimeout(function(){
+			console.log(new Date(), j)
+		},1000*j)
+	})(i)
+}
+
+setTimeout(function(){
+	console.log(new Date(), i);
+},1000*i);
+
+
+const tasks = [];
+for(var i = 0; i<5;i++){
+	((j) => {
+		tasks.push(new Promise((resolve) => {
+			setTimeout(() => {
+				console.log(new Date(), j);
+				resolve();
+			}, 1000*j)
+		}))
+	})(i)
+}
+
+Promise.all(tasks).then(() => {
+	setTimeout(() => {
+		console.log(new Date(), i)
+	},1000)
+})
+
+

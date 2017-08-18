@@ -68,7 +68,36 @@
 	* 3XX：重定向，为了完成请求，必须进一步执行的动作
 	* 4XX：客户端错误，请求包含语法错误或者请求无法实现
 	* 5XX：服务器错误，服务器不能实现一种明显无效请求
+* 关于跨域问题
+	* 了解跨域安全跟性能相关的问题
+	* 描述一下跨域安全问题
+		* 跨域资源共享(CORS)：CORS定义了两种跨域请求，简单跨域请求和非简单跨域请求。
+		* 当一个跨域请求发送简单跨域请求包括：
+			* 请求方法为HEAD，GET，POST;
+			* 请求头只有4个字段，Accept，Accept-Language，Content-Language，Last-Event-ID;
+			* 如果设置了Content-Type，则其值只能是application/x-www-form-urlencoded,multipart/form-data,text/plain。
+		* 浏览器检查之后发现这是一个非简单请求，比如请求头含有X-Forwarded-For字段。这时候浏览器不会马上发送这个请求，而是有一个preflight，跟服务器验证的过程。浏览器先发送一个options方法的预检请求。
+			* Origin: 普通的HTTP请求也会带有，在CORS中专门作为Origin信息供后端比对,表明来源域。
+			* Access-Control-Request-Method: 接下来请求的方法，例如PUT, DELETE等等
+			* Access-Control-Request-Headers: 自定义的头部，所有用setRequestHeader方法设置的头部都将会以逗号隔开的形式包含在这个头中
 
+			* Access-Control-Allow-Origin: 允许跨域访问的域，可以是一个域的列表，也可以是通配符"*"。这里要注意Origin规则只对域名有效，并不会对子目录有效。即http://foo.example/subdir/ 是无效的。但是不同子域名需要分开设置，这里的规则可以参照同源策略
+			* Access-Control-Allow-Credentials: 是否允许请求带有验证信息，这部分将会在下面详细解释
+			* Access-Control-Expose-Headers: 允许脚本访问的返回头，请求成功后，脚本可以在XMLHttpRequest中访问这些头的信息(貌似webkit没有实现这个)
+			* Access-Control-Max-Age: 			缓存此次请求的秒数。在这个时间范围内，所有同类型的请求都将不再发送预检请求而是直接使用此次返回的头作为判断依据，非常有用，大幅优化请求次数
+			* Access-Control-Allow-Methods: 允许使用的请求方法，以逗号隔开
+			* Access-Control-Allow-Headers: 允许自定义的头部，以逗号隔开，大小写不敏感
+
+	* 怎么实现跨域请求
+		* document.domain+iframe 的设置
+		* 动态创建script
+		* 利用iframe和location.hash
+		* window.name实现跨域数据传输
+		* 使用HTML5 postMessage
+		* 利用flash
+
+* 去除数组中重复元素
+return Array.from(new Set(Arr));
 
 ### 一些JS操作问题
 ```javascript
@@ -160,7 +189,6 @@ function sortArr(arr, sym){
 sortArr(arr, '>');
 
 // 三
-<--
 渲染过程
 i.渲染是以流式进行的。不需要得到全部数据再渲染，如：HTML文件下载多少就渲染多少；
 ii.大多数HTML外部资源都不会阻塞UI线程，如：CSS、IMG、Flash等，没有load完毕的图片会留一个空位置在那里；
@@ -169,17 +197,14 @@ iiii.HTML从上到下解析，该过程不可逆（参考 i）。但会出现ref
 
 遇到script标签 浏览器会暂停渲染HTML，将script交给js引擎编译执行，js会创建textNode
 
--->
 
 // 四
-<--
 文档类型 <!DOCTYPE HTML>
 新结构标签：header footer nav section article hgroup aside
 新增内联元素 figure figcaption mark time 
 全新的表达设计 email url number range search color Date pickers(date,month)
 绘图跟多媒体：canvas svg audio video
 离线缓存 web storage
--->
 
 // 五
 https://www.dajie.com/corp/3490059/discuss/6887634
