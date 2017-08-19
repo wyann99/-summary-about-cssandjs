@@ -52,6 +52,12 @@
 	* Vue.js从Angular那里借鉴了模板，并赋予了更好的语法，以及双向数据绑定（在单个组件里）。
 	* 从我们团队使用Vue.js的情况来看，Vue.js使用起来很简单。
 	它不强制使用某种编译器，所以你完全可以在遗留代码里使用Vue，并对之前乱糟糟的jQuery代码进行改造。
+
+	* 易用 已经会了HTML,CSS,JavaScript？即刻阅读指南开始构建应用！
+	* 灵活 简单小巧的核心，渐进式技术栈，足以应付任何规模的应用。
+	* 性能 20kb min+gzip 运行大小\ 超快虚拟 DOM \最省心的优化
+
+
 * 输入网址后，实际发生了什么呢？
 	* 1、输入网址
 	* 2、浏览器查找域名中的IP地址（DNS查找过程；浏览器缓存->系统缓存->路由器缓存->ISP DNS缓存）
@@ -68,6 +74,8 @@
 	* 3XX：重定向，为了完成请求，必须进一步执行的动作
 	* 4XX：客户端错误，请求包含语法错误或者请求无法实现
 	* 5XX：服务器错误，服务器不能实现一种明显无效请求
+	* http://blog.csdn.net/xiaozhuxmen/article/details/51934706
+	* http://blog.csdn.net/xiaozhuxmen/article/details/52014901
 * 关于跨域问题
 	* 了解跨域安全跟性能相关的问题
 	* 描述一下跨域安全问题
@@ -95,6 +103,38 @@
 		* window.name实现跨域数据传输
 		* 使用HTML5 postMessage
 		* 利用flash
+* 前端工程与性能优化
+性能优化方向分类：
+
+	请求数量
+		合并脚本和样式表
+		CSS Sprites
+		拆分初始化负载
+		划分主域（使用“查找-替换”思路，我们可以很好的实现，划分主域原则）
+
+	请求带宽
+		开启GZip(开启服务器的GZip压缩)
+		精简JavaScript（利用YUI compressor，压缩工具）
+		移出重复脚本
+		图像优化（图片压缩）
+
+	缓存利用
+		使用CDN（实现静态资源的缓存和快速访问）
+		使用外部的JavaScript 和 Css
+		添加 Expire
+		减少DNS查询
+		配置ETag
+		使用Ajax
+
+	页面结构
+		将样式表放在顶部
+		今早刷新文档的输出
+
+	代码校验
+		避免CSS表达式
+		避免重定向
+
+	* http://www.jianshu.com/p/758f30a64368
 
 * 去除数组中重复元素
 return Array.from(new Set(Arr));
