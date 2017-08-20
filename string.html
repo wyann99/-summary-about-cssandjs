@@ -1,0 +1,81 @@
+slice()
+定义：接受一个或者两个参数，第一个参数指定子字符串的开始位置。第二个参数表示子字符串的结束位置（不包括结束位置的那个字符），如果没有传递第二个参数，则将字符串的长度作为结束位置。
+1、传递参数为正值情况：
+	var str ="helloWorld";
+	// 一个参数，则将字符串长度作为结束位置
+	alert(str.slice(3)); // "loWorld"
+	// 两个参数，7位置上的字符为"r",但不包括结束位置的字符
+	alert(str.slice(3,7)); // "loWo" 
+2、传递参数为负值的情况：
+	slice()方法会将传入的负值与字符串长度相加。
+	var str ="helloWorld";
+	// 一个参数，与字符串长度相加即为slice(7)
+	alert(str.slice(-3)); // "rld"
+	// 两个参数，与字符串长度相加即为slice(3,6)
+	alert(str.slice(3,-4)); // "loW" 
+3、第二个参数比第一个参数值小的情况：
+	slice()方法传入的第二个参数比第一个参数小的话，则返回空字符串。
+	var str ="helloWorld";
+	alert(str.slice(5,3)); // "" 
+4、IE兼容性
+	在IE8浏览器测试下，没啥问题，行为与现代浏览器一致。
+
+substring()
+定义：接受一个或者两个参数，第一个参数指定子字符串的开始位置。第二个参数表示子字符串的结束位置（不包括结束位置的那个字符），如果没有传递第二个参数，则将字符串的长度作为结束位置。
+1、传递参数为正值情况：与slice()方法行为相同的
+	var str ="helloWorld";
+	// 一个参数，则将字符串长度作为结束位置
+	alert(str.substring(3)); // "loWorld"
+	// 两个参数，7位置上的字符为"r",但不包括结束位置的字符
+	alert(str.substring(3,7)); // "loWo" 
+2、传递参数为负值的情况：
+	substring()方法会把所有负值参数转换为0。来看下例子：
+	var str ="helloWorld";
+	// 两个参数，-4会转换为0，相当于substring(3,0) -->即为 substring(0,3)
+	alert(str.substring(3,-4)); // "hel" 
+3、substring()方法会将较小的数作为开始位置，将较大的数作为结束位置。如上面的例子substring(3,0) 与substring(0,3)是一样效果的。
+4、IE兼容性
+	在IE8浏览器测试下，没啥问题，行为与现代浏览器一致。
+
+substr()
+定义：接受一个或者两个参数，第一个参数指定子字符串的开始位置。第二个参数跟之前的方法有些区别，表示返回的字符个数。如果没有传递第二个参数，则将字符串的长度作为结束位置。来看例子：
+1、传递参数为正值情况：
+	var str ="helloWorld";
+	// 一个参数，则将字符串长度作为结束位置
+	alert(str.substr(3)); // "loWorld"
+	// 两个参数，从位置3开始截取后面7个字符
+	alert(str.substr(3,7)); // "loWorld" 
+2、传递参数为负值的情况：
+	substr()方法会将负的第一个参数加上字符串的长度，而将负的第二个参数转换为0。
+	var str ="helloWorld";
+	// 将第一个负的参数加上字符串的长度--->
+	//即为：substr(7,5) ，从位置7开始向后截取5个字符
+	alert(str.substr(-3,5)); // "rld"
+	// 将第二个参数转换为0
+	// 即为：substr(3,0)，即从位置3截取0个字符串，则返回空
+	alert(str.substr(3,-2)); // "" 
+3、IE兼容性
+substr()方法传递负值的情况下会存在问题，会返回原始的字符串。IE9修复了此问题。
+
+总结
+	在传递正值参数情况下，slice() 和 substring () 行为是一致的，substr()方法在第二个参数上会容易混淆
+	在传递负值参数情况下，slice() 方法是通过字符串长度相加，符合一般思维，substring()第二个参数转换为0会容易出问题，起始位置会容易变更，substr() 方法负值情况下会出现IE兼容性问题。
+综上，小弟一般推荐使用slice()方法。
+下面给大家介绍slice,substr和substring的区别
+首先，他们都接收两个参数，slice和substring接收的是起始位置和结束位置(不包括结束位置)，而substr接收的则是起始位置和所要返回的字符串长度。直接看下面例子：
+	var test = 'hello world';
+	alert(test.slice(,));    //o w
+	alert(test.substring(,));   //o w
+	alert(test.substr(,));   //o world 
+这里有个需要注意的地方就是：substring是以两个参数中较小一个作为起始位置，较大的参数作为结束位置。
+如：
+	alert(test.substring(7,4));   //o w 
+接着，当接收的参数是负数时，slice会将它字符串的长度与对应的负数相加，结果作为参数；substr则仅仅是将第一个参数与字符串长度相加后的结果作为第一个参数；substring则干脆将负参数都直接转换为0。测试代码如下：
+	var test = 'hello world';  
+	alert(test.slice(-));   //rld  
+	alert(test.substring(-));  //hello world  
+	alert(test.substr(-));  //rld  
+	alert(test.slice(,-));  //lo w  
+	alert(test.substring(,-)); //hel  
+	alert(test.substr(,-));  //空字符串 
+注意：IE对substr接收负值的处理有错，它会返回原始字符串。

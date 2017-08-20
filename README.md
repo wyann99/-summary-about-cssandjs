@@ -47,7 +47,7 @@
 八、onload、onready的区别，jquery里面是怎么实现的？
 
 
-九、4.form中的input有哪些类型？
+九、form中的input有哪些类型？
     // 10种
 	// button
 	// checkbox

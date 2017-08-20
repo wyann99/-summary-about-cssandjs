@@ -348,91 +348,88 @@ function add(){
 
 // ***十九***
 
-// function Person(){
-// 	this.sex = "man"
-// }
-// function animation(){
+function Person(){
+	this.sex = "man"
+}
+
+function sun(){}
+
+console.log(Person.prototype)
+
+Person.prototype = {
+	constructor:Person,
+	name:"N"
+}
+function goods(){
+	this.name = '冰激淋';
+	this.say = function(){
+		console.log('ss')
+	}
+}
+goods.prototype = {
+	name:"goods",
+	say:function(){
+		console.log('www')
+	}
+}
+function animation(){
  
-// }
-// function goods(){
-// 	this.name = '冰激淋';
-// 	this.say = function(){
-// 		console.log('ss')
-// 	}
-// }
-// function sun(){
+}
+animation.prototype.run = {
+ 	name:"animation"
+}
 
-// }
-// console.log(Person.prototype)
+ var friend = new Person();
+ var goodss = new goods();
+ var runs = new animation();
 
-// Person.prototype = {
-// 	constructor:Person,
-// 	name:"N"
-// }
-// goods.prototype = {
-// 	name:"goods",
-// 	say:function(){
-// 		console.log('www')
-// 	}
-// }
-// animation.prototype.run = {
-// 	name:"animation"
-// }
+ console.log(sun.prototype)
 
-// var friend = new Person();
-// var goodss = new goods();
+ console.log(friend.__proto__)	 //
+ console.log(goodss.__proto__)    //  这就是有无constructor
 
-// var runs = new animation();
+ console.log(friend.sex)
+ console.log(goodss.name)
+ goodss.say();
 
-// console.log(sun.prototype)
+ console.log(animation.prototype)
 
-// console.log(friend.__proto__)	 //
-// console.log(goodss.__proto__)    //  这就是有无constructor
+ console.log(friend.prototype)
 
-// console.log(friend.sex)
-// console.log(goodss.name)
-// goodss.say();
+ //为什么new 出来的实例 的 prototype 为 undefined
+ console.log({}.prototype)
+ console.log({}.__proto__)
+
+ console.log(runs.__proto__)	     //
+ console.log(goodss instanceof goods)
+ console.log(goodss.__proto__ === goods.prototype )
+ console.log(goods.prototype)
+ console.log(goods.prototype)
 
 
-
-// console.log(animation.prototype)
-
-// console.log(friend.prototype)
-
-// 为什么new 出来的实例 的prototype 为undefined
-// console.log({}.prototype)
-// console.log({}.__proto__)
-
-// console.log(runs.__proto__)	     //
-// console.log(goodss instanceof goods)
-// console.log(goodss.__proto__ === goods.prototype )
-// console.log(goods.prototype)
-// console.log(goods.prototype)
+ console.log(friend.__proto__ === Person.prototype )
+ console.log(friend.__proto__ )
 
 
-// console.log(friend.__proto__ === Person.prototype )
-// console.log(friend.__proto__ )
+ console.log(friend instanceof Object )
+ console.log(friend instanceof Person )
+ console.log(friend.constructor)
+ console.log( friend.constructor == Person )
+ console.log( friend.constructor == Object )
 
+ function Person(){
 
-// console.log(friend instanceof Object )
-// console.log(friend instanceof Person )
-// console.log(friend.constructor)
-// console.log( friend.constructor == Person )
-// console.log( friend.constructor == Object )
-
-// function Person(){
-
-// }
-// Person.prototype = {
-// 	constructor:Person,
-// 	name:"N"
-// }
-// var friend = new Person();
-// console.log( friend.constructor == Person )
-// console.log( Person.prototype )
-// console.log( friend.constructor == Object )
-// console.log(friend)
-// console.log(document.getElementsByTagName('div'))
+ }
+ Person.prototype = {
+ 	constructor:Person,
+ 	name:"N"
+ }
+ var friend = new Person();
+ console.log( friend.constructor == Person )
+ console.log( Person.prototype )
+ console.log( friend.constructor == Object )
+ console.log(friend)
+ console.log(document.getElementsByTagName('div'))
 
 // ***二十***
 
